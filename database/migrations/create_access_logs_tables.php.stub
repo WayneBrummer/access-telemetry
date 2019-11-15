@@ -1,0 +1,41 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateAccessLogsTable extends Migration
+{
+    public function up()
+    {
+        Schema::create('access_logs', function (Blueprint $table) {
+            // primary key
+            $table->increments('id');
+
+            // fields
+            $table->string('username')->nullable();
+            $table->integer('client_id')->nullable();
+            $table->string('origin')->nullable();
+            $table->string('real_ip')->nullable();
+            $table->string('user_agent')->nullable();
+            $table->string('server_name')->nullable();
+            $table->string('server_address')->nullable();
+            $table->string('server_port')->nullable();
+            $table->string('remote_port')->nullable();
+            $table->string('remote_address')->nullable();
+            $table->string('forwarded_for')->nullable();
+            $table->string('forwarded_host')->nullable();
+            $table->string('forwarded_port')->nullable();
+            $table->string('forwarded_protocol')->nullable();
+            $table->string('forwarded_server')->nullable();
+
+            // timestamps
+            $table->timestamp('request_time')->nullable();
+        });
+    }
+
+    public function down()
+    {
+        Schema::dropIfExists('access_logs');
+    }
+}
