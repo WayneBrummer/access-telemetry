@@ -3,7 +3,7 @@
 namespace Pace\AccessTelemetry\Console;
 
 use Illuminate\Console\Command;
-use Pace\MailTelemetry\Models\AccessLog;
+use Pace\AccessTelemetry\Models\AccessLog;
 
 class PruneCommand extends Command
 {

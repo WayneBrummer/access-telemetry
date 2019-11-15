@@ -52,8 +52,9 @@ class RecordRequestDetails
      */
     public function data($server)
     {
-        $data                 = [];
-        $data['request_time'] = (string) Carbon::createFromTimestamp($server['REQUEST_TIME']);
+        $data = [
+            'request_time' => (string) Carbon::createFromTimestamp($server['REQUEST_TIME']),
+        ];
 
         foreach ($this->logVariables as $key => $sKey) {
             $data[$key] = null;

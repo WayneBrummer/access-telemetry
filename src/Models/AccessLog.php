@@ -1,6 +1,6 @@
 <?php
 
-namespace Pace\MailTelemetry\Models;
+namespace Pace\AccessTelemetry\Models;
 
 use GeneaLabs\LaravelModelCaching\Traits\Cachable;
 use Illuminate\Database\Eloquent\Model;
