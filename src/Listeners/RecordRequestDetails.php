@@ -3,7 +3,6 @@
 namespace Pace\AccessTelemetry\Listeners;
 
 use Illuminate\Support\Carbon;
-use Pace\AccessTelemetry\Events\Login;
 use Pace\AccessTelemetry\Jobs\RecordAccessLog;
 
 class RecordRequestDetails
@@ -34,9 +33,9 @@ class RecordRequestDetails
     /**
      * Handle the event.
      *
-     * @param \Pace\AccessTelemetry\Events\Login $event
+     * @param \Pace\AccessTelemetry\Events\RequestLoginEvent $event
      */
-    public function handle(Login $event)
+    public function handle(RequestLoginEvent $event)
     {
         $credentials = $event->credentials;
         $data        = \array_merge([
