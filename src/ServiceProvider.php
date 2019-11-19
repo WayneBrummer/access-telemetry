@@ -28,8 +28,14 @@ class ServiceProvider extends IlluminateServiceProvider
     public function boot()
     {
         if ($this->app->runningInConsole()) {
+
+            if (! class_exists('CreateAccessLogsTable')) {
+                $this->publishes([
+                    __DIR__.'/../database/migrations/create_access_logs_tables.php.stub' => database_path('migrations/'.date('Y_m_d_His', time()).'_create_access_logs_tables.php'),
+                ], 'migrations');
+            }
+
             $this->configure();
-            $this->loadMigrationsFrom(__DIR__ . '/../../database/migrations');
         }
 
         $this->app->booted(function () {
@@ -52,12 +58,12 @@ class ServiceProvider extends IlluminateServiceProvider
      */
     protected function registerRoutes()
     {
-        // $authConfig          = $this->app['config']->get('access-telemetry.auth-route', []);
-        // $namespace           = ['namespace'=> 'Pace\AccessTelemetry\Http\Controllers'];
+        $authConfig = $this->app['config']->get('access-telemetry.auth-route', []);
+        $namespace  = ['namespace'=> 'Pace\AccessTelemetry\Http\Controllers'];
 
-        // Route::group(\array_merge($config, $namespace), function () {
-        //     $this->loadRoutesFrom(__DIR__ . '/../routes/api.php');
-        // });
+        Route::group(\array_merge($config, $namespace), function () {
+            $this->loadRoutesFrom(__DIR__ . '/../routes/api.php');
+        });
 
         // Route::group(\array_merge($authConfig, $namespace), function () {
         //     $this->loadRoutesFrom(__DIR__ . '/../routes/auth.php');
