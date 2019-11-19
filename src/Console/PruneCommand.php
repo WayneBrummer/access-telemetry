@@ -39,7 +39,7 @@ class PruneCommand extends Command
         AccessLog::where(
             'request_time',
             '<',
-            now()->subSeconds(config('access-telemetry.log_age', 15552000))
+            now()->subSeconds(config('access-telemetry.log_age'))
         )->delete();
     }
 }
