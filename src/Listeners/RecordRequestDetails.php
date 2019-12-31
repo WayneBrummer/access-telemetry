@@ -3,6 +3,7 @@
 namespace Pace\AccessTelemetry\Listeners;
 
 use Illuminate\Support\Carbon;
+use Pace\AccessTelemetry\Events\RequestLoginEvent;
 use Pace\AccessTelemetry\Jobs\RecordAccessLog;
 
 class RecordRequestDetails

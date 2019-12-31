@@ -28,10 +28,9 @@ class ServiceProvider extends IlluminateServiceProvider
     public function boot()
     {
         if ($this->app->runningInConsole()) {
-
-            if (! class_exists('CreateAccessLogsTable')) {
+            if (!\class_exists('CreateAccessLogsTable')) {
                 $this->publishes([
-                    __DIR__.'/../database/migrations/create_access_logs_tables.php.stub' => database_path('migrations/'.date('Y_m_d_His', time()).'_create_access_logs_tables.php'),
+                    __DIR__ . '/../database/migrations/create_access_logs_tables.php.stub' => database_path('migrations/' . \date('Y_m_d_His', \time()) . '_create_access_logs_tables.php'),
                 ], 'migrations');
             }
 
