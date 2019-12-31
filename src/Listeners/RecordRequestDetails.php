@@ -6,6 +6,9 @@ use Illuminate\Support\Carbon;
 use Pace\AccessTelemetry\Events\RequestLoginEvent;
 use Pace\AccessTelemetry\Jobs\RecordAccessLog;
 
+/**
+ * Basic listener Attached to Event to record access details.
+ */
 class RecordRequestDetails
 {
     protected $logVariables = [
