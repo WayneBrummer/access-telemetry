@@ -25,13 +25,6 @@ class RecordRequestDetails
     ];
 
     /**
-     * Create the event listener.
-     */
-    public function __construct()
-    {
-    }
-
-    /**
      * Handle the event.
      *
      * @param \Pace\AccessTelemetry\Events\RequestLoginEvent $event
