@@ -1,4 +1,4 @@
-# Laravel 6 Access Telemetry
+# Laravel Access Telemetry
 
 .env settings
 Days 180
